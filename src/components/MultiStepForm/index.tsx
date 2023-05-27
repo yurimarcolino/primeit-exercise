@@ -2,13 +2,15 @@ import { useFieldArray, useForm, FormProvider } from "react-hook-form";
 import { NewInvestmentFormShape, resolver } from "./schema";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-import { formatDate } from "@/utils/formatDate";
 import { Button } from "@/ui/Button";
 import { FormPanel } from "../FormPanel";
 import { ButtonContainer } from "@/ui/ButtonContainer";
+import { useFormStore } from "@/context/formStore";
+import { formatDate } from "@/utils/formatDate";
 
 export function MultiStepForm() {
   const router = useRouter();
+  const { actions, state } = useFormStore();
 
   const newInvestmentForm = useForm<NewInvestmentFormShape>({
     mode: "onSubmit",
@@ -33,12 +35,10 @@ export function MultiStepForm() {
   });
 
   useEffect(() => {
-    const storedData = localStorage.getItem('investment');
-    if (storedData) {
-      const parsedData = JSON.parse(storedData);
-      reset({ investment: formatDate(parsedData) });
+    if (state.form.length) {
+      reset({ investment: state.form });
     }
-  }, [reset]);
+  }, [reset, state.form]);
 
   function AppendInputs() {
     append({
@@ -50,8 +50,8 @@ export function MultiStepForm() {
   }
 
   function handleCreateProject({ investment }: NewInvestmentFormShape) {
-    const formDate = JSON.stringify(investment);
-    // localStorage.setItem("investment", formDate);
+    const formattedData = formatDate(investment)
+    actions.setForm(formattedData)
     reset();
     router.push('/Summary');
   }

@@ -1,4 +1,4 @@
-import { Summary } from "@/components/Summary";
+import Summary from "@/components/Summary";
 import Link from "next/link";
 
 export default function SummaryPage() {
