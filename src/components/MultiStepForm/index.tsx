@@ -3,7 +3,7 @@ import { NewInvestmentFormShape, resolver } from "./schema";
 import { Trash } from "phosphor-react";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-import { format } from 'date-fns';
+import { formatDate } from "@/utils/formatDate";
 
 // use this example to say that we could use it instead of date-fns library
 // const formattedData = parsedData.map((item: any) => {
@@ -46,20 +46,7 @@ export function MultiStepForm() {
     const storedData = localStorage.getItem('investment');
     if (storedData) {
       const parsedData = JSON.parse(storedData);
-
-      const formattedData = parsedData.map((item: any) => {
-        const startDate = new Date(item.startDate);
-        const endDate = new Date(item.endDate);
-        const startDateFormatted = format(startDate, 'yyyy-MM-dd');
-        const endDateFormatted = format(endDate, 'yyyy-MM-dd');
-
-        return {
-          ...item,
-          startDate: startDateFormatted,
-          endDate: endDateFormatted
-        };
-      });
-      reset({ investment: formattedData });
+      reset({ investment: formatDate(parsedData) });
     }
   }, [reset]);
 
@@ -76,7 +63,7 @@ export function MultiStepForm() {
     const formDate = JSON.stringify(investment);
     localStorage.setItem("investment", formDate);
     reset();
-    router.push('/summary');
+    router.push('/Summary');
   }
 
   return (
