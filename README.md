@@ -1,3 +1,16 @@
+// TODO
+
+// add a panel to the form.
+
+// use this example to say that we could use it instead of date-fns library
+// const formattedData = parsedData.map((item: any) => {
+// return {
+// ...item,
+// startDate: new Date(item.startDate).toLocaleDateString('en-US'),
+// endDate: new Date(item.endDate).toLocaleDateString('en-US')
+// };
+// });
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

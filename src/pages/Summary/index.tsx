@@ -4,8 +4,9 @@ import Link from "next/link";
 export default function SummaryPage() {
   return (
     <>
-      <Link href="/"> go back</Link>
       <Summary />
+      <button onClick={() => alert('Form completed')}>Complete the form submission</button>
+      <Link href="/">Go back</Link>
     </>
   )
 }
