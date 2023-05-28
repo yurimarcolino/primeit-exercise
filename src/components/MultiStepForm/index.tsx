@@ -41,7 +41,7 @@ export function MultiStepForm() {
     }
   }, [reset, state.form]);
 
-  function AppendInputs() {
+  function appendInputs() {
     append({
       startDate: "",
       endDate: "",
@@ -54,7 +54,7 @@ export function MultiStepForm() {
     const formattedData = formatDate(investment)
     actions.setForm(formattedData)
     reset();
-    router.push('/Summary');
+    router.push('/summary');
   }
 
   return (
@@ -74,7 +74,7 @@ export function MultiStepForm() {
           })}
           <ButtonContainer>
             <Button type="submit">Save</Button>
-            <Button type="button" onClick={AppendInputs}>Add lines</Button>
+            <Button type="button" onClick={appendInputs}>Add lines</Button>
           </ButtonContainer>
         </form >
       </FormProvider>

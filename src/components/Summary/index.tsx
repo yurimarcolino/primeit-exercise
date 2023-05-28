@@ -9,7 +9,7 @@ export default function Summary() {
 
 
   return (
-    <div className="flex flex-col justify-center items-center w-full h-full p-10">
+    <div className="flex flex-col justify-center items-center w-full h-full ">
       <Header title="Summary" />
       <SummaryPanel />
 
