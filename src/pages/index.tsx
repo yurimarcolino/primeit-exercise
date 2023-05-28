@@ -1,5 +1,5 @@
+import { MultiStepForm } from '@/components/molecules/MultiStepForm'
 import { Inter } from 'next/font/google'
-import { MultiStepForm } from '@/components/MultiStepForm'
 
 const inter = Inter({ subsets: ['latin'] })
 

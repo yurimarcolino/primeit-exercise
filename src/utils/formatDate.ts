@@ -1,4 +1,4 @@
-import { NewInvestmentShape } from '@/components/MultiStepForm/schema';
+import { NewInvestmentShape } from '@/components/molecules/MultiStepForm/schema';
 import { format } from 'date-fns';
 
 export function formatDate(parsedData: NewInvestmentShape[]) {

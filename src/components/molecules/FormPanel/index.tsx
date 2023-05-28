@@ -1,7 +1,7 @@
-import { DeletePanel } from "../atoms/DeletePanel";
-import { Panel } from "../atoms/Panel";
-import { Input } from "../molecules/Input";
-import { Select } from "../molecules/Select";
+import { Panel } from "@/components/atoms/Panel";
+import { DeletePanel } from "../../atoms/DeletePanel";
+import { Input } from "../Input";
+import { Select } from "../Select";
 
 interface FormPanelProps {
   errors: any;

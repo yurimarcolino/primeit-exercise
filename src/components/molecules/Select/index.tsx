@@ -1,8 +1,8 @@
+import { ErrorMessage } from '@/components/atoms/ErrorMessage';
+import { InputContainer } from '@/components/atoms/InputContainer';
+import { Label } from '@/components/atoms/Label';
 import React from 'react';
-import { Label } from '../Label';
 import { useFormContext } from 'react-hook-form';
-import { ErrorMessage } from '../ErrorMessage';
-import { InputContainer } from '../InputContainer';
 
 type Option = {
   value: string;

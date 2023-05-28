@@ -1,4 +1,4 @@
-import Summary from "@/components/Summary";
+import Summary from "@/components/molecules/Summary";
 import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ['latin'] })

@@ -1,6 +1,6 @@
+import { Panel } from "@/components/atoms/Panel";
+import { SummaryTable } from "@/components/atoms/SummaryTable";
 import { useFormStore } from "@/context/formStore";
-import { Panel } from "@/ui/Panel";
-import { SummaryTable } from "@/ui/SummaryTable";
 
 export function SummaryPanel() {
   const { state } = useFormStore();

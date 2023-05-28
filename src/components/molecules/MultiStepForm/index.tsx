@@ -2,12 +2,12 @@ import { useFieldArray, useForm, FormProvider } from "react-hook-form";
 import { NewInvestmentFormShape, resolver } from "./schema";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-import { Button } from "@/ui/Button";
+import { Button } from "@/components/atoms/Button";
 import { FormPanel } from "../FormPanel";
-import { ButtonContainer } from "@/ui/ButtonContainer";
 import { useFormStore } from "@/context/formStore";
 import { formatDate } from "@/utils/formatDate";
-import { Header } from "@/ui/Header";
+import { Header } from "@/components/atoms/Header";
+import { ButtonContainer } from "@/components/atoms/ButtonContainer";
 
 export function MultiStepForm() {
   const router = useRouter();

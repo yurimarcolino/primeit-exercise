@@ -1,4 +1,4 @@
-import { NewInvestmentShape } from "@/components/MultiStepForm/schema";
+import { NewInvestmentShape } from "@/components/molecules/MultiStepForm/schema";
 import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
 
