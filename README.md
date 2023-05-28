@@ -1,16 +1,3 @@
-// TODO
-
-// add a panel to the form.
-
-// use this example to say that we could use it instead of date-fns library
-// const formattedData = parsedData.map((item: any) => {
-// return {
-// ...item,
-// startDate: new Date(item.startDate).toLocaleDateString('en-US'),
-// endDate: new Date(item.endDate).toLocaleDateString('en-US')
-// };
-// });
-
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
@@ -27,25 +14,21 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Dependencies
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+This app uses the following external dependencies:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+1. [react-hook-form](https://github.com/react-hook-form/react-hook-form): React Hooks for form state management and validation.
+2. [tailwindcss](https://github.com/tailwindlabs/tailwindcss): A utility-first CSS framework for rapidly building custom user interfaces.
+3. [eslint](https://github.com/eslint/eslint): A Find and fix problems in your JavaScript code.
+4. [immer](https://github.com/immerjs/immer): Create the next immutable state by mutating the current one.
+5. [phosphor-react](https://github.com/phosphor-icons/react): A flexible icon family for React.
+6. [zod](https://github.com/colinhacks/zod): TypeScript-first schema validation with static type inference.
+7. [zustand](https://github.com/pmndrs/zustand): State management in React
+8. [jest](https://github.com/jestjs/jest): Delightful JavaScript Testing.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Notes
 
-## Learn More
+1. **Testing**: Currently, I have only tested the store and the format function. I believe these are a "must" of this project that must be tested. Of course, it's also important to check if the components are working alone and together, but I have decided not to pursue this approach since testing was not a requirement for this particular exercise.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+2. **Atomic design**: The current design implementation of the application utilizes a design system called "Atomic design," which emphasizes dividing components into smaller, more readable, and testable pieces. I became curious about this approach after reading a blog and decided to try it out for this small project. While I haven't applied all the layers of atomic design, I believe that following the Atoms and Molecules approach is sufficient for this particular project. I've learned a lot from this experience, so I consider it a success, even though there might be some room for improvement. I plan to apply this knowledge to future projects as well.
