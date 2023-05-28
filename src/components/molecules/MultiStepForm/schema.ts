@@ -12,17 +12,13 @@ export interface NewInvestmentFormShape {
   investment: NewInvestmentShape[];
 }
 
-const isEndDateValid = (endDate: Date, { startDate }: { startDate: Date }): boolean => {
-  return endDate >= startDate;
-};
-
 const schema = zod.object({
   investment: zod.array(
     zod.object({
       startDate: zod
         .coerce.date()
         .refine((date) => date !== null, "Start date is required")
-        .refine((date) => date >= new Date(), "Start date must be greater than or equal to today"),
+        .refine((data) => data > new Date(), { message: "Start date must be greater than today" }),
       endDate: zod
         .coerce
         .date()

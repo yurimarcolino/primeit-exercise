@@ -1,12 +1,18 @@
-import { NewInvestmentShape } from "@/components/molecules/MultiStepForm/schema";
 import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
 
-interface FormState {
+export interface NewInvestmentShape {
+  startDate: string;
+  endDate: string;
+  valueType: string;
+  amount: string;
+}
+
+export interface FormState {
   form: NewInvestmentShape[];
 }
 
-interface FormActions {
+export interface FormActions {
   setForm: (formValues: NewInvestmentShape[]) => void;
 }
 
@@ -21,11 +27,11 @@ export const useFormStore = create<FormProps>()(
       form: [],
     },
     actions: {
-      setForm(value) {
+      setForm(formValues) {
         set(({ state }) => {
-          state.form = value;
+          state.form = formValues;
         });
-      }
+      },
     },
   }))
 );
