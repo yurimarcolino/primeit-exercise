@@ -1,12 +1,12 @@
 import Summary from "@/components/Summary";
-import Link from "next/link";
+import { Inter } from "next/font/google";
+
+const inter = Inter({ subsets: ['latin'] })
 
 export default function SummaryPage() {
   return (
-    <>
+    <div className={`min-h-screen min-w-screen p-10 bg-slate-950 ${inter.className}`}>
       <Summary />
-      <button onClick={() => alert('Form completed')}>Complete the form submission</button>
-      <Link href="/">Go back</Link>
-    </>
+    </div>
   )
 }

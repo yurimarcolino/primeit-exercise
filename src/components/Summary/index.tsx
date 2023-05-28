@@ -1,12 +1,27 @@
-import { useFormStore } from "@/context/formStore";
+import { Header } from "@/ui/Header";
+import { SummaryPanel } from "../SummaryPanel";
+import { Button } from "@/ui/Button";
+import { ButtonContainer } from "@/ui/ButtonContainer";
+import { useRouter } from "next/router";
 
 export default function Summary() {
-  const { state } = useFormStore();
+  const router = useRouter();
+
 
   return (
-    <div>
-      <h1>Summary</h1>
-      {JSON.stringify(state.form)}
+    <div className="flex flex-col justify-center items-center w-full h-full p-10">
+      <Header title="Summary" />
+      <SummaryPanel />
+
+      <ButtonContainer>
+        <Button
+          type="button"
+          onClick={() => alert('Form completed')}
+        >
+          Complete
+        </Button>
+        <Button type="button" onClick={() => router.push('/')}>Go back</Button>
+      </ButtonContainer>
     </div>
   );
 }

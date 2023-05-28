@@ -5,5 +5,5 @@ type LabelProps = React.LabelHTMLAttributes<HTMLLabelElement> & {
 };
 
 export function Label({ htmlFor, children, ...rest }: LabelProps) {
-  return <label className="text-white" htmlFor={htmlFor} {...rest}>{children}</label>;
+  return <label className="text-white text-lg" htmlFor={htmlFor} {...rest}>{children}</label>;
 };

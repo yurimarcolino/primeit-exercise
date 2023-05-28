@@ -7,6 +7,7 @@ import { FormPanel } from "../FormPanel";
 import { ButtonContainer } from "@/ui/ButtonContainer";
 import { useFormStore } from "@/context/formStore";
 import { formatDate } from "@/utils/formatDate";
+import { Header } from "@/ui/Header";
 
 export function MultiStepForm() {
   const router = useRouter();
@@ -60,7 +61,7 @@ export function MultiStepForm() {
     <div className="flex justify-center items-center w-full h-full p-10">
       <FormProvider {...newInvestmentForm}>
         <form onSubmit={handleSubmit(handleCreateProject)}>
-          <header className="flex justify-center py-5 text-white font-bold text-lg">Exercise Form</header>
+          <Header title="Exercise Form" />
           {fields.map((field, index) => {
             return (
               <FormPanel
@@ -72,19 +73,8 @@ export function MultiStepForm() {
             );
           })}
           <ButtonContainer>
-            <Button
-              type="submit"
-              className="text-white bg-slate-600 rounded px-3 py-1"
-            >
-              Save
-            </Button>
-            <Button
-              type="button"
-              onClick={AppendInputs}
-              className="text-white bg-slate-600 rounded px-3 py-1"
-            >
-              Add lines
-            </Button>
+            <Button type="submit">Save</Button>
+            <Button type="button" onClick={AppendInputs}>Add lines</Button>
           </ButtonContainer>
         </form >
       </FormProvider>

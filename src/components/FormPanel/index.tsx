@@ -1,7 +1,7 @@
 import { Input } from "@/ui/Input";
-import { InputContainer } from "@/ui/InputContainer";
 import { Select } from "@/ui/Select";
 import { DeletePanel } from "../DeletePanel";
+import { Panel } from "@/ui/Panel";
 
 interface FormPanelProps {
   errors: any;
@@ -22,12 +22,13 @@ const SELECT_OPTIONS = [
 
 export function FormPanel({ errors, index, remove }: FormPanelProps) {
   return (
-    <section className="flex flex-col bg-slate-800 mb-10 p-5 overflow-y-auto rounded">
+    <Panel>
       <Input
         id="interval1"
         type="date"
         label="Start date"
-        field={`investment.${index}.startDate`}
+        field="startDate"
+        index={index}
         error={errors.investment?.[index]?.startDate?.message}
       />
 
@@ -35,24 +36,28 @@ export function FormPanel({ errors, index, remove }: FormPanelProps) {
         id="interval2"
         type="date"
         label="End date"
-        field={`investment.${index}.endDate`}
+        field="endDate"
+        index={index}
         error={errors.investment?.[index]?.endDate?.message}
       />
 
       <Select
         options={SELECT_OPTIONS}
         id="valueType"
-        field={`investment.${index}.valueType`}
+        label="Value type"
+        field="valueType"
+        index={index}
         error={errors.investment?.[index]?.valueType?.message}
       />
       <Input
         type="number"
         id="amount"
-        label="Amount:"
-        field={`investment.${index}.amount`}
+        label="Amount"
+        field="amount"
+        index={index}
         error={errors.investment?.[index]?.amount?.message}
       />
       {index > 0 && (<DeletePanel index={index} remove={remove} />)}
-    </section>
+    </Panel>
   );
 }

@@ -9,19 +9,22 @@ type Option = {
   label: string;
 };
 
-type SelectProps = React.SelectHTMLAttributes<HTMLSelectElement> & {
+type SelectProps = {
   options: Option[];
+  id: string;
   field: string;
   error: string;
+  index: number;
+  label: string;
 };
 
-export function Select({ options, field, error, ...rest }: SelectProps) {
+export function Select({ options, field, error, index, label, id }: SelectProps) {
   const { register } = useFormContext();
 
   return (
     <InputContainer>
-      <Label className="text-white " htmlFor="valueType">Value Type:</Label>
-      <select className="rounded" {...register(field)} {...rest}>
+      <Label htmlFor="valueType">{label}</Label>
+      <select id={id} className="w-full p-2 rounded" {...register(`investment.${index}.${field}`)}>
         <option defaultValue="" disabled />
         {options.map((option) => (
           <option key={option.value} value={option.value}>{option.label}</option>
