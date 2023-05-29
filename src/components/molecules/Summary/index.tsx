@@ -2,9 +2,18 @@ import { SummaryPanel } from "../SummaryPanel";
 import { Button } from "@/components/atoms/Button";
 import { ButtonContainer } from "@/components/atoms/ButtonContainer";
 import { Header } from "@/components/atoms/Header";
+import { useFormStore } from "@/context/formStore";
 import { useRouter } from "next/router";
 
 export default function Summary() {
+  const { state, actions } = useFormStore();
+
+  function completeForm() {
+    //make api calls and redirect somewhere.
+    actions.setIsFormFinished(true)
+    alert('Form completed');
+  }
+
   const router = useRouter();
 
   return (
@@ -15,11 +24,18 @@ export default function Summary() {
       <ButtonContainer>
         <Button
           type="button"
-          onClick={() => alert('Form completed')}
+          onClick={completeForm}
+          disabled={state.isFormFinished}
         >
           Complete
         </Button>
-        <Button type="button" onClick={() => router.push('/')}>Go back</Button>
+        <Button
+          type="button"
+          onClick={() => router.push('/')}
+          disabled={state.isFormFinished}
+        >
+          Go back
+        </Button>
       </ButtonContainer>
     </div>
   );

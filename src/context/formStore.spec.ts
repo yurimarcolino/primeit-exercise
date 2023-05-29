@@ -7,16 +7,17 @@ describe("useFormStore", () => {
 
   beforeEach(() => {
     store = useFormStore.getState();
-    useFormStore.setState({ state: { form: [] } });
+    useFormStore.setState({ state: { form: [], isFormFinished: false } });
   });
 
   afterEach(() => {
     useFormStore.setState(store);
   });
 
-  it("should initialize with an empty form array", () => {
+  it("should initialize the form state with an empty form array and the isFinishedForm state false", () => {
     const { state } = useFormStore.getState();
     expect(state.form).toEqual([]);
+    expect(state.isFormFinished).toEqual(false);
   });
 
   it("should update the form state correctly", () => {
@@ -29,5 +30,13 @@ describe("useFormStore", () => {
 
     const { state } = useFormStore.getState();
     expect(state.form).toEqual(formValues);
+  });
+  it("should update the isFormFished state correctly", () => {
+    const isFinished = true;
+
+    store.actions.setIsFormFinished(isFinished);
+    const retrievedIsFinished = useFormStore.getState().state.isFormFinished;
+
+    expect(retrievedIsFinished).toEqual(isFinished);
   });
 });
