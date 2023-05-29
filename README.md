@@ -18,6 +18,18 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+#Tests
+
+You can run the tests using:
+
+```bash
+npm run test
+# or
+yarn test
+# or
+pnpm test
+```
+
 ## Dependencies
 
 This app uses the following external dependencies:
