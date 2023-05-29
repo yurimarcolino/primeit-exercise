@@ -18,7 +18,7 @@ export default function SummaryPage() {
   }, [state.isFormFinished, router, actions]);
 
   return (
-    <div className={`min-h-screen min-w-screen p-10 bg-slate-950 ${inter.className}`}>
+    <div className={`flex justify-center items-center min-h-screen min-w-screen p-10 bg-slate-950 ${inter.className}`}>
       <Summary />
     </div>
   )
