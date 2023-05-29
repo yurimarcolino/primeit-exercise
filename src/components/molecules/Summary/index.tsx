@@ -10,6 +10,7 @@ export default function Summary() {
 
   function completeForm() {
     //make api calls and redirect somewhere.
+    if (state.form.length === 0) return;
     actions.setIsFormFinished(true)
     alert('Form completed');
   }
